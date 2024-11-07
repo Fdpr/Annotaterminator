@@ -1,8 +1,19 @@
-# React + Vite
+# Annotaterminator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A very simple tool for speeding up annotation tasks. Use this instead of excel et al. to reduce clutter, improve speed and accuracy and be more focused on your work. Intended use is annotation of spreadsheet-like data for linguistic coding or otherwise.
 
-Currently, two official plugins are available:
+## Features
+- Importing CSV files
+- edit using keyboard only
+- create schemas to specify view and edit fields
+- autocomplete and validation
+- filtering
+- download the finished file
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Annotation schemas
+- create a schema in the administrator tab
+- schemas can be applied to any file
+- specify...
+    - which columns are visible
+    - which columns are editable
+    - which values are permitted

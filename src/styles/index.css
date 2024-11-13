@@ -1,0 +1,16 @@
+* {
+    /* border: 1px solid red; */
+}
+
+.container > div:first-child {
+    height: 100vh;
+    max-height: 100vh;
+}
+
+.container {
+    max-width: 100% !important;
+}
+
+.rs-input-number {
+    max-width: 300px;
+}

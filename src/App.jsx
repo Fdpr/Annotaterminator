@@ -19,7 +19,7 @@ function App() {
 
   return (
     <CustomProvider theme={settings.theme}>
-      {/*<WelcomeScreen />*/}
+      <WelcomeScreen />
       <FileDrop >
         <div className='h-full flex flex-col'>
 

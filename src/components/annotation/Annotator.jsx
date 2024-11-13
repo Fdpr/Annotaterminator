@@ -25,7 +25,7 @@ const rowsWithColumnsAsText = (rows, columns, table, sizes, props) =>
     )
 
 const Annotator = () => {
-    // useBeforeunload(() => "You currently have a table loaded. Are you sure you want to close Annotaterminator? Any unsaved progress will be lost.")
+    useBeforeunload(() => "You currently have a table loaded. Are you sure you want to close Annotaterminator? Any unsaved progress will be lost.")
     const { setAlert } = useAlert();
     const table = useTable();
     const dispatch = useTableDispatch();

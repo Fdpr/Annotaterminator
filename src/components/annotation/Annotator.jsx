@@ -51,6 +51,8 @@ const Annotator = () => {
   const [sizes, setSizes] = useState(null);
   const filter = useFilter();
 
+  console.log(postRows);
+
   const validate = () => {
     let hasInvalids = false;
     const newInvalids = currentValues.map(() => false);
@@ -135,14 +137,14 @@ const Annotator = () => {
       return;
     if (e.key === "ArrowUp" && row > 0) {
       e.preventDefault();
-      handleRowChange(preRows ? preRows[preRows.length - 1] + 3: row + 1, e.metaKey);
+      handleRowChange(Array.isArray(preRows) && preRows.length > 0 ? preRows[preRows.length - 1] + 1: row + 1, e.metaKey);
     } else if (
       e.key === "ArrowDown" &&
       row < table.table.length - 2 &&
       !document.querySelector(".rs-picker-select-menu")
     ) {
       e.preventDefault();
-      handleRowChange(postRows ? postRows[0] + 1: row + 1, e.metaKey);
+      handleRowChange(Array.isArray(postRows) && postRows.length > 0 ? postRows[0] + 1: row + 1, e.metaKey);
     }
   };
 
@@ -192,7 +194,7 @@ const Annotator = () => {
     const post = [];
     for (let i = displayRow - 2; i >= 0; i--) {
         if (pre.length >= settings.preRows) break;
-        if (!filterRow(table.table[i])) pre.push(i);
+        if (!filterRow(table.table[i])) pre.unshift(i);
     }
     for (let i = displayRow; i < table.table.length; i++) {
         if (post.length >= settings.postRows) break;

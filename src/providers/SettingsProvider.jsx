@@ -1,5 +1,6 @@
 import { useImmerReducer } from "use-immer";
 import { useContext, createContext, useEffect } from "react";
+import PropTypes from "prop-types";
 
 const initialState = JSON.parse(localStorage.getItem('settings')) || {
     theme: "light",
@@ -29,6 +30,10 @@ export default function SettingsProvider({ children }) {
         </SettingsContext.Provider>
     );
 }
+
+SettingsProvider.propTypes = {
+    children: PropTypes.node,
+};
 
 function settingsReducer(draft, action) {
     switch (action.type) {

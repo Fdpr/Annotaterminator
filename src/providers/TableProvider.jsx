@@ -1,5 +1,6 @@
 import { useImmerReducer } from "use-immer";
 import { useContext, createContext } from "react";
+import PropTypes from "prop-types";
 
 const TableContext = createContext(null);
 const TableDispatchContext = createContext(null);
@@ -19,11 +20,18 @@ export default function TableProvider({ children }) {
     );
 }
 
+TableProvider.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
 function tableReducer(draft, action) {
     switch (action.type) {
         case 'load table': {
             const table = action.table.map((column, index) => ({ row: index, ...column }));
             return { table: table, title: action.title }
+        }
+        case "reload": {
+            return action.payload;
         }
         case 'set row': {
             draft.table[action.row] = action.payload;

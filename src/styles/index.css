@@ -14,3 +14,19 @@
 .rs-input-number {
     max-width: 300px;
 }
+
+.edit-row{
+    background-color: rgb(100 116 139 / 0.5);
+}
+
+.edit-row * {
+    background-color: transparent !important;
+}
+.edit-row .rs-picker-toggle {
+    background-color: transparent !important;
+}
+
+.rs-auto-complete-invalid input {
+    border: 1px solid red !important;
+    background: rgba(255, 0, 0, 0.5) !important;
+}

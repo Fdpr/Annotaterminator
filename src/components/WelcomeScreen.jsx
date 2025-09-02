@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../styles/WelcomeScreen.css';
 import logo from '../assets/annotaterminator.png'
 import { Button } from 'rsuite';
+import PropTypes from 'prop-types';
 
-function WelcomeScreen() {
-    const [isVisible, setIsVisible] = useState(true);
+function WelcomeScreen({handleSetInvisibility}) {
     const [fadeOut, setFadeOut] = useState(false);
 
     const handleButtonClick = () => {
         // Trigger fade-out animation
         setFadeOut(true);
-        setTimeout(() => setIsVisible(false), 1000); // Delay to let the fade-out animation complete
+        setTimeout(() => handleSetInvisibility(), 1000); // Delay to let the fade-out animation complete
     };
 
     return (
-        isVisible && (
             <div className={`welcome-screen ${fadeOut ? 'fade-out' : ''}`}>
                 <div className={`${fadeOut ? 'fade-out' : 'fade-in'}`}>
                     <div className='blur' />
@@ -33,8 +32,11 @@ function WelcomeScreen() {
                     </div>
                 </div>
             </div>
-        )
-    );
+    )
+}
+
+WelcomeScreen.propTypes = {
+    handleSetInvisibility: PropTypes.func.isRequired,
 }
 
 export default WelcomeScreen;

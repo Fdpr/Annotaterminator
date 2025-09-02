@@ -3,7 +3,6 @@ import { loadSchema } from "../../util/fileLoading";
 import { useSchema, useSchemaDispatch } from "../../providers/SchemaProvider";
 import { validateJSONSchema } from "../../providers/SchemaProvider";
 import { useAlert } from "../../providers/AlertProvider";
-import { useCallback, useEffect, useState } from "react";
 
 const SchemaLoader = () => {
     const schema = useSchema();
@@ -33,7 +32,7 @@ const SchemaLoader = () => {
                 }
             }
         }} ><Button>Load schema from file</Button></Uploader >
-        <InputPicker data={[]} placeholder="Load schema from server" />
+        <InputPicker disabled data={[]} placeholder="Load schema from server" />
     </>
 }
 

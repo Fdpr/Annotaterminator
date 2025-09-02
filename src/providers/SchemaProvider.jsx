@@ -1,6 +1,7 @@
 import { useImmerReducer } from "use-immer";
 import { useContext, createContext } from "react";
 import { v4 as uuid } from "uuid";
+import PropTypes from "prop-types";
 
 const SchemaContext = createContext(null);
 const SchemaDispatchContext = createContext(null);
@@ -16,6 +17,10 @@ export default function SchemaProvider({ children }) {
         </SchemaContext.Provider>
     );
 }
+
+SchemaProvider.propTypes = {
+    children: PropTypes.node.isRequired,
+};
 
 
 function schemaReducer(draft, action) {

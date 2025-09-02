@@ -2,6 +2,7 @@ import { InputPicker, Input, Checkbox, Button, TagInput } from "rsuite"
 import { useTable } from "../../providers/TableProvider";
 import { useSchema, useSchemaDispatch } from "../../providers/SchemaProvider";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 
 const SchemaEntry = ({ id }) => {
@@ -74,6 +75,10 @@ const SchemaEntry = ({ id }) => {
             })
         }}>Remove</Button>
     </div>
+}
+
+SchemaEntry.propTypes = {
+    id: PropTypes.number.isRequired,
 }
 
 export default SchemaEntry

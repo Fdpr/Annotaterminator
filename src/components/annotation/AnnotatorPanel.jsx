@@ -4,6 +4,7 @@ import TableLoader from "../io/TableLoader";
 import SchemaLoader from "../io/SchemaLoader";
 import { useSchema } from "../../providers/SchemaProvider";
 import Annotator from "./Annotator";
+import PropTypes from "prop-types";
 
 function AnnotatorPanel({ hide }) {
     const table = useTable();
@@ -11,7 +12,7 @@ function AnnotatorPanel({ hide }) {
 
     return <Panel style={{display: hide ? "none" : ""}} bordered header="Annotator">
         {table ?
-            (schema ? <Annotator /> : <>
+            (schema ? <Annotator/> : <>
                 <Text>No schema loaded at the moment. You can upload a JSON config file to load a schema or select a schema saved on the server.</Text>
                 <SchemaLoader />
             </>) : <>
@@ -20,6 +21,10 @@ function AnnotatorPanel({ hide }) {
             </>
         }
     </Panel>
+}
+
+AnnotatorPanel.propTypes = {
+    hide: PropTypes.bool,
 }
 
 
